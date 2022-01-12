@@ -1,15 +1,23 @@
 import React from "react";
-import ImagePerso from "./ImagePerso.js/ImagePerso";
+import ImagePerso from "./ImagePerso/ImagePerso";
+import CaracPerso from "./CaracPerso/CaracPerso";
 
 const personnage = (props) => (
     <div className="row no-gutters">
         <div className="col-6">
-            <ImagePerso numImage={props.image}/>
+            <ImagePerso 
+                numImage={props.image}
+                flecheGauche = {props.precedente}
+                flecheDroite = {props.suivante}
+            />
         </div>
         <div className="col-6">
-            <div>Force : {props.force}</div>
-            <div>Agilité : {props.agilité}</div>
-            <div>Intelligence : {props.intelligence}</div>
+            <CaracPerso
+                nbPointsDisponibles = {props.nbPointsDisponibles}
+                force = {props.force}
+                agilite = {props.agilite}
+                intelligence = {props.intelligence}
+            />
         </div>
     </div>
 );

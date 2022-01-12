@@ -16,11 +16,11 @@ const imagePerso = (props) => {
     return (
         <div className="row no-gutters text-center align-items-center">
             {/* ".join" permet de combiner différentes caractéristiques css */}
-            <div className={["col-1", classes.fleche, classes.gauche].join(' ')}></div>
+            <div className={["col-1", classes.fleche, classes.gauche].join(' ')} onClick={props.flecheGauche}></div>
             <div className="col">
                 <img src={imageToPrint} alt="perso"/>
             </div>
-            <div className={["col-1", classes.fleche, classes.droite].join(' ')}></div>
+            <div className={["col-1", classes.fleche, classes.droite].join(' ')} onClick={props.flecheDroite}></div>
         </div>
     );
 };
