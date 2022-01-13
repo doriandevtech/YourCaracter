@@ -17,6 +17,8 @@ const personnage = (props) => (
                 force = {props.force}
                 agilite = {props.agilite}
                 intelligence = {props.intelligence}
+                enleverPoint = {props.enleverPoint}
+                ajouterPoint = {props.ajouterPoint}
             />
         </div>
     </div>

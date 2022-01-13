@@ -8,9 +8,9 @@ class CreateurPersonnage extends Component {
     state = {
         personnage : {
             image : 1,
-            force : 1,
-            agilite : 2,
-            intelligence : 3,
+            force : 0,
+            agilite : 0,
+            intelligence : 0,
         },
         nbPointsDisponibles : 7
     }
@@ -35,6 +35,36 @@ class CreateurPersonnage extends Component {
         }))
     }
 
+    handleEnleverPoint = (carac) => {
+        this.setState((oldState, props) => {
+            // Si le nombre de points pour un caractéristiques est égal à 5 ou si je n'ai plus de points dipsonibles
+            if(oldState.personnage[carac] <= 0 || oldState.nbPointsDisponibles >= 7) return null
+            const newPointCarac = oldState.personnage[carac] - 1;
+            const newPerso = {...oldState.personnage};
+            const newNbPointsDisponibles = oldState.nbPointsDisponibles + 1;
+            newPerso[carac] = newPointCarac;
+            return {
+                personnage:newPerso,
+                nbPointsDisponibles: newNbPointsDisponibles,
+            }
+        })
+    }
+
+    handleAjouterPoint = (carac) => {
+        this.setState((oldState, props) => {
+            // Si le nombre de points pour un caractéristiques est égal à 5 ou si je n'ai plus de points dipsonibles
+            if(oldState.personnage[carac] >= 5 || oldState.nbPointsDisponibles <= 0) return null
+            const newPointCarac = oldState.personnage[carac] + 1;
+            const newPerso = {...oldState.personnage};
+            const newNbPointsDisponibles = oldState.nbPointsDisponibles - 1;
+            newPerso[carac] = newPointCarac;
+            return {
+                personnage:newPerso,
+                nbPointsDisponibles: newNbPointsDisponibles,
+            }
+        })
+    }
+
     render() {
         return (
             <div className="container">
@@ -45,6 +75,8 @@ class CreateurPersonnage extends Component {
                 precedente = {this.handleImagePrecedente}
                 suivante = {this.handleImageSuivante}
                 nbPointsDisponibles = {this.state.nbPointsDisponibles}
+                enleverPoint = {this.handleEnleverPoint}
+                ajouterPoint = {this.handleAjouterPoint}
             />
             <div>Armes</div>
             <div className="row no-gutters">

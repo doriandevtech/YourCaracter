@@ -8,9 +8,9 @@ const carac = (props) => {
     }
     return (
         <div className="row no-gutters">
-            <div className={[classes.signe, classes.moins].join(" ")}></div>
+            <div className={[classes.signe, classes.moins].join(" ")} onClick={props.moins}></div>
             <div>{props.children}</div> {carre}
-            <div className={[classes.signe, classes.plus].join(" ")}></div>
+            <div className={[classes.signe, classes.plus].join(" ")} onClick={props.plus}></div>
         </div>
     );
 };
