@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Button from "../../components/Button/Button";
 import TitreH1 from "../../components/TitreH1/TitreH1";
 import Personnage from './Personnage/Personnage';
+import Armes from './Armes/Armes';
 
 class CreateurPersonnage extends Component {
 
@@ -12,7 +13,8 @@ class CreateurPersonnage extends Component {
             agilite : 0,
             intelligence : 0,
         },
-        nbPointsDisponibles : 7
+        nbPointsDisponibles : 7,
+        armes : ["epee","fleau","arc","hache"]
     }
 
     handleImagePrecedente = () => {
@@ -78,7 +80,7 @@ class CreateurPersonnage extends Component {
                 enleverPoint = {this.handleEnleverPoint}
                 ajouterPoint = {this.handleAjouterPoint}
             />
-            <div>Armes</div>
+            <Armes />
             <div className="row no-gutters">
               <Button typeBtn="btn btn-danger" css="col-6" clic={() => console.log("Réinitialisation")}>Réinitialiser</Button>
               <Button typeBtn="btn btn-success" css="col-6" clic={() => console.log("Création")}>Créer</Button>
