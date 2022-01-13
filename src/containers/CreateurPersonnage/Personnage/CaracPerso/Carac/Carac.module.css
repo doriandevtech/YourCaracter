@@ -1,0 +1,23 @@
+.signe{
+    background-color:#ff8000;
+    cursor:pointer;
+}
+
+.points{
+    clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+    background-color:green;
+    width:20px;
+    height:20px;
+}
+
+.moins{
+    clip-path: polygon(20% 40%, 80% 40%, 80% 60%, 20% 60%);
+    width:20px;
+    height:20px;
+}
+.plus{
+    clip-path: polygon(0% 35%, 35% 35%, 35% 0%, 65% 0%, 65% 35%, 100% 35%, 100% 65%, 65% 65%, 65% 100%, 35% 100%, 35% 65%, 0 65%);
+    width:20px;
+    height:20px;
+}
+
