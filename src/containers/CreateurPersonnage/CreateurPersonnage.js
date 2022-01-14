@@ -12,6 +12,7 @@ class CreateurPersonnage extends Component {
             force : 0,
             agilite : 0,
             intelligence : 0,
+            arme : null
         },
         nbPointsDisponibles : 7,
         armes : ["epee","fleau","arc","hache"]
@@ -67,6 +68,30 @@ class CreateurPersonnage extends Component {
         })
     }
 
+    handleChangeArmePersonnage = (arme) => {
+        const newPerso = {...this.state.personnage};
+        newPerso.arme = arme;
+        this.setState({personnage:newPerso})
+    }
+
+    handleValidation = () => {
+        alert("Personnage créé")
+    }
+
+    handleReinitialisation = () => {
+        this.setState({
+            personnage : {
+                image : 1,
+                force : 0,
+                agilite : 0,
+                intelligence : 0,
+                arme : null
+            },
+            nbPointsDisponibles : 7,
+            armes : ["epee","fleau","arc","hache"]
+        })
+    }
+
     render() {
         return (
             <div className="container">
@@ -80,10 +105,14 @@ class CreateurPersonnage extends Component {
                 enleverPoint = {this.handleEnleverPoint}
                 ajouterPoint = {this.handleAjouterPoint}
             />
-            <Armes />
+            <Armes 
+                listeArmes = {this.state.armes}
+                changeArme = {this.handleChangeArmePersonnage}
+                currentArme = {this.state.personnage.arme}
+            />
             <div className="row no-gutters">
-              <Button typeBtn="btn btn-danger" css="col-6" clic={() => console.log("Réinitialisation")}>Réinitialiser</Button>
-              <Button typeBtn="btn btn-success" css="col-6" clic={() => console.log("Création")}>Créer</Button>
+              <Button typeBtn="btn btn-danger" css="col-6" clic={() => this.handleReinitialisation()}>Réinitialiser</Button>
+              <Button typeBtn="btn btn-success" css="col-6" clic={() => this.handleValidation()}>Créer</Button>
             </div>
           </div>
         );
