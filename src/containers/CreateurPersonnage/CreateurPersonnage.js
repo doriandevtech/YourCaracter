@@ -3,6 +3,7 @@ import Button from "../../components/Button/Button";
 import TitreH1 from "../../components/TitreH1/TitreH1";
 import Personnage from './Personnage/Personnage';
 import Armes from './Armes/Armes';
+import axios from 'axios';
 
 class CreateurPersonnage extends Component {
 
@@ -15,7 +16,28 @@ class CreateurPersonnage extends Component {
             arme : null
         },
         nbPointsDisponibles : 7,
-        armes : ["epee","fleau","arc","hache"]
+        armes : null,
+        loading : false
+    }
+
+    componentDidMount = () => {
+        this.setState({loading:true});
+        axios.get("https://creaperso-live-default-rtdb.europe-west1.firebasedatabase.app/armes.json")
+        .then(response => {
+            // Convertir les valeurs contenues dans "data" en un tableau
+            const armesArray = Object.values(response.data);
+            this.setState({
+                armes:armesArray,
+                loading:false
+            });
+        })
+        .catch(error => {
+            console.log(error);
+            this.setState({
+                loading:false
+            })
+        })
+
     }
 
     handleImagePrecedente = () => {
@@ -105,11 +127,18 @@ class CreateurPersonnage extends Component {
                 enleverPoint = {this.handleEnleverPoint}
                 ajouterPoint = {this.handleAjouterPoint}
             />
-            <Armes 
+            {
+                this.state.loading && <div>Chargement ...</div>
+            }
+            {
+                this.state.armes &&
+                <Armes 
                 listeArmes = {this.state.armes}
                 changeArme = {this.handleChangeArmePersonnage}
                 currentArme = {this.state.personnage.arme}
             />
+            }
+
             <div className="row no-gutters">
               <Button typeBtn="btn btn-danger" css="col-6" clic={() => this.handleReinitialisation()}>Réinitialiser</Button>
               <Button typeBtn="btn btn-success" css="col-6" clic={() => this.handleValidation()}>Créer</Button>
