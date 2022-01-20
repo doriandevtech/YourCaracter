@@ -128,7 +128,7 @@ class CreateurPersonnage extends Component {
                 ajouterPoint = {this.handleAjouterPoint}
             />
             {
-                this.state.loading && <div>Chargement ...</div>
+                this.state.loading && <div>Chargement en cours ...</div>
             }
             {
                 this.state.armes &&
