@@ -1,4 +1,4 @@
-# Welcome to the YourCaracter 🦸🏻‍♂️ project !
+# Welcome to the YourCaracter project ! 🦸🏻‍♂️
 
 ## What is the outcome of this project ?
 
@@ -11,9 +11,7 @@ Multiple informations are manageable :
 
 Here is a look of the interface letting you build your caracter :
 
-
 ![YourCaracter interface](https://user-images.githubusercontent.com/61510923/154050534-929a2acc-db57-4435-aed1-fb885281c6b1.png)
-
 
 ## Which stack had been used ?
 
@@ -36,3 +34,14 @@ This project has one purpose, showing the frontend skills that I developped as a
 The project is currently in his beta version. I still want to upgrade it, and I intend to do so by :
 - displaying other informations available threw the API
 - developing the UI in order to have a better user experience
+
+## How can you run this project ?
+
+1. Clone this respository on your local machine
+1. Run `npm install` inside your cloned project's folder
+1. Run `npm start`
+1. See the final result !
+
+## Contribution
+
+Don'h hesitate to open **issues** and **pull requests** if something is not clear or if you want to improve this project 🤗
